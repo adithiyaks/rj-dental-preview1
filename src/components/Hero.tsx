@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from './UI/Button';
+import heroImg from '../assets/hero.jpg';
 
 export default function Hero() {
   return (
@@ -62,9 +63,9 @@ export default function Hero() {
             className="relative"
           >
              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1629909613654-28a3a7c4d459?auto=format&fit=crop&q=80&w=2070" 
-                  alt="Luxury Dental Clinic" 
+                <img
+                  src={heroImg}
+                  alt="Luxury Dental Clinic"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />

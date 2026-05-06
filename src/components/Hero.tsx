@@ -10,11 +10,15 @@ export default function Hero() {
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-cyan-soft/20 rounded-full blur-[120px]" />
       <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-gold/10 rounded-full blur-[100px]" />
 
+      {/* Subtle grid overlay between decorative blobs and content */}
+      <div className="absolute inset-0 z-[5] pointer-events-none hero-grid-overlay" aria-hidden="true" />
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gold/20 px-4 py-2 rounded-full mb-6">
@@ -57,17 +61,21 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            className="relative"
+            initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            whileHover={{ scale: 1.02, translateY: -6 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className="relative group"
           >
-             <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative">
+             <div className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl relative max-h-[560px]">
                 <img
                   src={heroImg}
                   alt="Luxury Dental Clinic"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-deep/40 to-transparent" />
              </div>
@@ -77,6 +85,7 @@ export default function Hero() {
                animate={{ y: [0, -10, 0] }}
                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
+               aria-hidden="true"
              >
                 <div className="flex gap-1 mb-2">
                   {[1,2,3,4,5].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-gold" />)}

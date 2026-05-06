@@ -66,7 +66,7 @@ export default function Hero() {
             viewport={{ once: true, amount: 0.3 }}
             whileHover={{ scale: 1.02, translateY: -6 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="relative group"
+            className="relative group lg:ml-6"
           >
              <div className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl relative max-h-[560px]">
                 <img

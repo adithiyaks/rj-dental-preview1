@@ -68,7 +68,7 @@ export default function Hero() {
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="relative group lg:ml-6"
           >
-             <div className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl relative max-h-[560px]">
+             <div className="aspect-[5/6] rounded-[2rem] overflow-hidden shadow-2xl relative max-h-[560px]">
                 <img
                   src={heroImg}
                   alt="Luxury Dental Clinic"
